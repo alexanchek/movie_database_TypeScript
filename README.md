@@ -13,7 +13,7 @@
 
 ## Need to create:
 
-Need to create .env with variables 
+Need to create .env at the root folder with following variables: 
 
 - REACT_APP_FIREBASE_API_KEY 
 - REACT_APP_FIREBASE_AUTH_DOMAIN
