@@ -2,7 +2,7 @@
 
 ## Definition
 
-Made from ground zero.
+Made from ground zero. The app to record favourite movies in Firestore.
 
 ## Used Technologies:
 
