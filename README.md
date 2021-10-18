@@ -11,7 +11,7 @@
 - UseFormik & Yup (validation of forms)
 - Firebase (as backend)
 
-## Need to create:
+## Requirements
 
 Need to create .env at the root folder with following variables: 
 
