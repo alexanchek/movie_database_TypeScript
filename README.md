@@ -28,4 +28,4 @@ Need to create .env at the root folder with following variables:
 - REACT_APP_FIREBASE_APP_ID
 - REACT_APP_FIREBASE_MEASUREMENT_ID
 
-Need to sign in and then log in to see private routes (such as /movies-add, /movies, /books-add, /books.
+Need to sign in and then log in to see private routes (such as /movies-add, /movies, /books-add, /books).
