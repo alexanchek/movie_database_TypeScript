@@ -38,7 +38,6 @@ export const signup = (data: SignUpData, onError: () => void): ThunkAction<void,
     export const getTheUserById = (id: string): ThunkAction<void, RootState, null, AuthAction> => {
         return async dispatch => {
             try {
-              console.log(id);
                 const userRef = doc(db, "users", id);
                 const user = await getDoc(userRef);
                 if (user.exists()) {
