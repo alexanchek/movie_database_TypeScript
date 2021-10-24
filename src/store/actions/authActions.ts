@@ -1,10 +1,8 @@
-import { collection, updateDoc, setDoc, deleteDoc, doc, getDoc, getDocs } from "firebase/firestore";
+import { setDoc, doc, getDoc } from "firebase/firestore";
 import {ThunkAction} from 'redux-thunk';
 import {SignUpData, AuthAction, User, SET_USER, SET_LOADING, SIGN_OUT, SET_ERROR, SignInData} from '../../types/Redux/authTypes';
 import {RootState} from '../index';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "firebase/auth";
-import 'firebase/compat/auth'
-import 'firebase/compat/firestore'
 import { db } from "../../services/firebase/config";
 
 const auth = getAuth();

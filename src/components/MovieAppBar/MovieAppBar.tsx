@@ -20,7 +20,7 @@ interface IMovieAppBar {
 
 const MovieAppBar: React.FC<IMovieAppBar> = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const { authenticated, user } = useSelector((state: RootState) => state.auth);
+  const { authenticated } = useSelector((state: RootState) => state.auth);
   const dispatch = useDispatch();
 
   const signOutHandler = () => {

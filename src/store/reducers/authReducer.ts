@@ -1,4 +1,3 @@
-
 import {AuthAction, AuthState, SET_USER, SET_LOADING, SIGN_OUT, SET_ERROR, SET_SUCCESS, NEED_VERIFICATION} from '../../types/Redux/authTypes';
 
 const initialState: AuthState = {
