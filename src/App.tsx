@@ -18,7 +18,7 @@ import { Box, CircularProgress, Container } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 
 import { RootState } from './store';
-import firebase from './services/firebase/config';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getTheUserById, setLoading } from './store/actions/authActions';
 
 const App: React.FC = () => {
@@ -28,7 +28,8 @@ const App: React.FC = () => {
   // Check if user exists
   useEffect(() => {
     dispatch(setLoading(true));
-    const unsubscribe = firebase.auth().onAuthStateChanged(async (user: any) => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, async (user: any) => {
       if(user) {
         // dispatch(setLoading(true));
         await dispatch(getTheUserById(user.uid));
