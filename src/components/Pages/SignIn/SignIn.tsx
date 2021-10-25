@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
+import LinkToSignUp from './LinkToSignUp';
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -18,16 +19,31 @@ import { RootState } from '../../../store';
 import { useDispatch, useSelector } from 'react-redux';
 // import { User } from '../../../store/types/authTypes';
 
-import LinkToSignUp from './LinkToSignUp';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+
+const validationSchema = yup.object({
+  password: yup.string().required().matches(/^[a-zA-Z0-9]+$/iu, 'Только английские буквы или цифры, пожалуйста!'),
+  email: yup.string().email("Введите правильный e-mail").required()
+})
 
 const theme = createTheme();
 
 const SignIn = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const { error } = useSelector((state: RootState) => state.auth);
+
+  const formik = useFormik({
+    initialValues: {
+      password: "",
+      email: ""
+    },
+    onSubmit: ({email, password}) => {
+      dispatch(signin({ email, password }, () => setLoading(false)));
+    },
+    validationSchema
+  })
 
   useEffect(() => {
     return () => {
@@ -36,18 +52,6 @@ const SignIn = () => {
       }
     }
   }, [error, dispatch]);
-
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if(error) {
-      dispatch(setError(''));
-    }
-    setLoading(true);
-    dispatch(signin({ email, password }, () => setLoading(false)));
-  };
-
-  
 
   return (
     <ThemeProvider theme={theme}>
@@ -66,7 +70,7 @@ const SignIn = () => {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" onSubmit={formik.handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -76,7 +80,11 @@ const SignIn = () => {
               name="email"
               autoComplete="email"
               autoFocus
-              onChange={(e) => setEmail(e.currentTarget.value)}
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
             />
             <TextField
               margin="normal"
@@ -87,7 +95,11 @@ const SignIn = () => {
               type="password"
               id="password"
               autoComplete="current-password"
-              onChange={(e) => setPassword(e.currentTarget.value)}
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              error={formik.touched.password && Boolean(formik.errors.password)}
+              helperText={formik.touched.password && formik.errors.password}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
