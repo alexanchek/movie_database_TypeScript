@@ -6,10 +6,10 @@ import { useDispatch } from 'react-redux';
 
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { ERROR_ONLY_LETTERS } from '../../services/errors/errorMessages';
+import { ERROR_ONLY_LETTERS, ERROR_ONLY_NUMBERS } from '../../services/errors/errorMessages';
 
 const validationSchema = yup.object({
-    year: yup.string().min(4, 'Это год, только 4 цифры :)').max(4, 'Это год, только 4 цифры :)'),
+    year: yup.string().min(4, 'Это год, только 4 цифры :)').max(4, 'Это год, только 4 цифры :)').matches(/^[0-9]+$/iu, ERROR_ONLY_NUMBERS),
     genre: yup.string().max(15, 'Слишком много символов').matches(/^[а-яА-Я]+$/iu, ERROR_ONLY_LETTERS),
     country: yup.string().max(15, 'Слишком много символов').matches(/^[а-яА-Я]+$/iu, ERROR_ONLY_LETTERS)
 })
