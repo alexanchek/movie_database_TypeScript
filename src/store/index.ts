@@ -3,11 +3,13 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
 import authReducer from './reducers/authReducer';
+import DataBookReducer from './reducers/dataBookReducer';
 import dataMovieReducer from './reducers/dataMovieReducer';
 import DataMoviesReducer from './reducers/dataMoviesReducer';
 
 const rootReducer = combineReducers({
     auth: authReducer,
+    book: DataBookReducer,
     movie: dataMovieReducer,
     movies: DataMoviesReducer
 })

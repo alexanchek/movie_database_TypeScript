@@ -35,4 +35,5 @@ interface SetMovieLoadingAction {
 }
 
 export type DataMovieAction = AddMovieAction
-| GetMoviesAction | SetMovieLoadingAction;
+| GetMoviesAction
+| SetMovieLoadingAction;

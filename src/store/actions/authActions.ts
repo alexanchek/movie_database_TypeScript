@@ -97,4 +97,3 @@ export const signup = (data: SignUpData, onError: () => void): ThunkAction<void,
           });
        }
      }
-

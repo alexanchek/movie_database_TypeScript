@@ -31,7 +31,7 @@ const MoviesForm = () => {
     })
 
     return (
-        <Box component="form" onSubmit={formik.handleSubmit} noValidate sx={{ mt: 3 }}>
+        <Box component="form" onSubmit={formik.handleSubmit} noValidate sx={{ mt: 3, width: '100%' }}>
             <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
                 <TextField
