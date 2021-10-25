@@ -21,10 +21,11 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { ERROR_ONLY_ENGLISH_AND_LETTERS, ERROR_REQUIRED } from '../../../services/errors/errorMessages';
 
 const validationSchema = yup.object({
-  password: yup.string().required().matches(/^[a-zA-Z0-9]+$/iu, 'Только английские буквы или цифры, пожалуйста!'),
-  email: yup.string().email("Введите правильный e-mail").required()
+  password: yup.string().required(ERROR_REQUIRED).matches(/^[a-zA-Z0-9]+$/iu, ERROR_ONLY_ENGLISH_AND_LETTERS),
+  email: yup.string().email("Это поле нужно заполнить").required(ERROR_REQUIRED)
 })
 
 const theme = createTheme();
@@ -68,7 +69,7 @@ const SignIn = () => {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Войти
           </Typography>
           <Box component="form" onSubmit={formik.handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
@@ -76,7 +77,7 @@ const SignIn = () => {
               required
               fullWidth
               id="email"
-              label="Email Address"
+              label="Введите вашу почту"
               name="email"
               autoComplete="email"
               autoFocus
@@ -91,7 +92,7 @@ const SignIn = () => {
               required
               fullWidth
               name="password"
-              label="Password"
+              label="Введите пароль"
               type="password"
               id="password"
               autoComplete="current-password"
@@ -101,10 +102,10 @@ const SignIn = () => {
               error={formik.touched.password && Boolean(formik.errors.password)}
               helperText={formik.touched.password && formik.errors.password}
             />
-            <FormControlLabel
+            {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
-            />
+            /> */}
             <Button
               type="submit"
               fullWidth
