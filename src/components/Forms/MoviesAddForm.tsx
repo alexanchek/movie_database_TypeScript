@@ -1,13 +1,13 @@
 import { Box, Button, Grid, TextField } from '@mui/material';
 import React, {} from 'react';
-import { useState } from 'react';
 
 import { addmovie } from '../../store/actions/dataMovieActions';
 import { useDispatch } from 'react-redux';
 
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { ERROR_REQUIRED, ERROR_ONLY_ENGLISH_AND_LETTERS, ERROR_ONLY_LETTERS, ERROR_ONLY_NUMBERS } from '../../services/errors/errorMessages';
+
+import { ERROR_REQUIRED, ERROR_ONLY_LETTERS, ERROR_ONLY_NUMBERS } from '../../services/errors/errorMessages';
 
 const validationSchema = yup.object({
     
