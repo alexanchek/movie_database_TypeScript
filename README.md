@@ -9,7 +9,7 @@ Made from ground zero. The goal of the game is to guess the number the app creat
 - TypeScript
 - React
 - Custom hooks: UseTypedSelector and useActions for adding types to selectors and actions of Redux state.
-- Redux, Redux-thunk
+- Redux
 - Styles in components as objects
 
 ## Requirements
