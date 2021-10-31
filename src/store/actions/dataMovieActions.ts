@@ -9,9 +9,8 @@ import { MoviesFormData } from '../../types/Components/Forms/MoviesFormDataTypes
 export const addmovie =(data: DataMovie): ThunkAction<void, RootState, null, DataMovieAction> => {
     return async dispatch => {
         try {
-            const documentRef = await doc(collection(db, "movies_temp"));
+            const documentRef = await doc(collection(db, "movies"));
             const documentId = documentRef.id;
-            console.log(documentId);
             const docToBase = {...data, uuid: documentId};
             await setDoc(documentRef, docToBase);
         } catch (e: any) {
