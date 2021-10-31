@@ -1,4 +1,4 @@
-import { CircularProgress, Container, Grid, Typography } from '@mui/material';
+import { Container, Grid, Typography } from '@mui/material';
 import React from 'react';
 import ItemCard from './ItemMovieCard';
 import {IItemMovieCards} from '../../../types/Components/IItemCards';
@@ -6,15 +6,13 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../../store';
 
 const ItemCards: React.FC<IItemMovieCards> = ({data}) => {
-    const { loading } = useSelector((state: RootState) => state.auth);
-    const amount = data.length;
+    const { length } = useSelector((state: RootState) => state.movies);
 
     return (
         <Container>
-            {/* {loading ? <CircularProgress color="secondary" /> : null } */}
             <Grid>
                 <Typography>
-                    Фильмов найдено: {amount}
+                    {length === 0 ? 'Ничего не найдено :( Попробуйте еще раз' : `Фильмов найдено: ${length}`}
                 </Typography>
             </Grid>
 
@@ -23,8 +21,7 @@ const ItemCards: React.FC<IItemMovieCards> = ({data}) => {
                      return (
                          <ItemCard key={movie.uuid} movie={movie} />
                      )
-                 })}
-                 
+                 })} 
              </Grid>
         </Container>
     );

@@ -3,6 +3,7 @@ import { DataMovieAction, GET_MOVIES, SET_MOVIE_LOADING } from "../../types/Redu
 
 const initialMoviesState: MoviesState = {
     data: null,
+    length: null,
     error: '',
     movieLoading: false
 }
@@ -12,7 +13,8 @@ const DataMoviesReducer =  (state = initialMoviesState, action: DataMovieAction)
         case GET_MOVIES:
             return {
                 ...state,
-                data: action.payload
+                data: action.payload,
+                length: action.payload.length
             }
         case SET_MOVIE_LOADING:
             return {
