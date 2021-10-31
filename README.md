@@ -2,15 +2,18 @@
 
 ## Definition
 
-Made from ground zero. The goal of the game is to guess the number the app created . The app follows the amount of trials. Good luck!
+Made from ground zero. There's the database including movies I would like to recommend to friends.
 
 ## Used Technologies:
 
 - TypeScript
-- React
-- Custom hooks: UseTypedSelector and useActions for adding types to selectors and actions of Redux state.
-- Redux
-- Styles in components as objects
+- React, React-router-dom
+- Hooks: UseEffect, UseState
+- Redux, Redux-thunk
+- Material UI (User Interface)
+- Custom components PrivateRoute & Public route for dividing routes into two (public and private ones) ways.
+- formik & Yup (validation of forms)
+- Firebase (as backend)
 
 ## Requirements
 
