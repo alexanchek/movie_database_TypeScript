@@ -19,6 +19,13 @@ const validationSchema = yup.object({
   })
 
 const MoviesAddForm = () => {
+    const formFields = [
+        {name: 'movieName', label: 'Введите название фильма'},
+        {name: 'year', label: 'Введите год'},
+        {name: '', label: ''}
+    ];
+
+
     const dispatch = useDispatch();
 
     const uuid = '';
