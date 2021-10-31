@@ -2,7 +2,7 @@
   "name": "movie-database-3",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://alexanchek.github.io/tempapp",
+  "homepage": ".",
   "dependencies": {
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",

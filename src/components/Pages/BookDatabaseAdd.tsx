@@ -6,7 +6,7 @@ const BookDatabaseAdd = () => {
     
     return (
         <div>
-            book add
+            Books Page will be added soon
         </div>
     );
 };

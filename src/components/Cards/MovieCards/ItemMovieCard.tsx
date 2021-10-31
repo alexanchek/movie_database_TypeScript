@@ -1,7 +1,7 @@
 import { Grid, CardMedia, CardContent, Typography, CardActions, Button } from '@mui/material';
 import Card from '@mui/material/Card';
 import React from 'react';
-import { DataMovie } from '../../types/Redux/dataMovieTypes';
+import { DataMovie } from '../../../types/Redux/dataMovieTypes';
 import noImage from './no-image.jpg';
 
 interface IItemCard {
@@ -19,7 +19,7 @@ const ItemCard: React.FC<IItemCard> = ({movie}) => {
                 component="img"
                 sx={{
                 }}
-                image={movie.img ? movie.img : noImage} 
+                image={movie?.img ? movie.img : noImage} 
                 alt="random"
                 />
                 <CardContent sx={{ flexGrow: 1 }}>

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import LinkToSignUp from './LinkToSignUp';
+// import LinkToSignUp from './LinkToSignUp';
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -115,7 +115,7 @@ const SignIn = () => {
             </Button>
             <Grid container>
               <Grid item>
-              <LinkToSignUp text={`Don't have an account? Sign Up`}/> 
+              {/* <LinkToSignUp text={`Don't have an account? Sign Up`}/>  */}
               </Grid>
               <Grid item>
               </Grid>
