@@ -5,7 +5,7 @@ import { getmovies } from '../../../store/actions/dataMovieActions';
 import { useDispatch } from 'react-redux';
 
 import { useFormik } from 'formik';
-import { formFields, selectGenreFields, validationSchema, ILabel } from './MoviesFormConfig'
+import { formFields, validationSchema, ILabel, IFormFields } from './MoviesFormConfig'
 
 const MoviesForm = () => {
     const dispatch = useDispatch();
@@ -41,7 +41,7 @@ const MoviesForm = () => {
         );
     }
 
-    const selectField = (field: {name: string, label: string, subfields?: any[]}) => {
+    const selectField = (field: IFormFields) => {
                 return (
                     <FormControl fullWidth>
                         <InputLabel variant="standard" htmlFor="uncontrolled-native">
@@ -91,45 +91,3 @@ const MoviesForm = () => {
 };
 
 export default MoviesForm;
-
-// switch(field.type) {
-//     case 'textfield':
-//         return (
-//             <Grid item xs={12} sm={6} key={field.name}>
-//                 <TextField
-//                 name={field.name}
-//                 fullWidth
-//                 id={field.name}
-//                 label={field.label}
-//                 autoFocus
-//                 value={formik.values[field.name as keyof ILabel]}
-//                 onChange={formik.handleChange}
-//                 onBlur={formik.handleBlur}
-//                 error={formik.touched[field.name as keyof ILabel] && Boolean(formik.errors[field.name as keyof ILabel])}
-//                 helperText={formik.touched[field.name as keyof ILabel] && formik.errors[field.name as keyof ILabel]} />
-//             </Grid>
-//         );
-//     case 'selectfield':
-//         return (
-//             <Grid item xs={12} sm={6} key={field.name}>
-//                 <FormControl fullWidth>
-//                     <InputLabel variant="standard" htmlFor="uncontrolled-native">
-//                         Age
-//                     </InputLabel>
-//                     <NativeSelect
-//                         defaultValue={30}
-//                         inputProps={{
-//                         name: 'age',
-//                         id: 'uncontrolled-native',
-//                         }}
-//                     >
-//                         {selectFields.map((field) => {
-//                                 return (
-//                                     <option value={field}>{field}</option>
-//                                 )
-//                         })}
-//                     </NativeSelect>
-//                 </FormControl>
-//             </Grid>
-//         )
-// }

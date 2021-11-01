@@ -12,9 +12,9 @@ export const selectGenreFields = [
 ];
 
 
-export const formFields: {name: string, label: string, type: string, subfields?: any[]}[] =  [
+export const formFields: IFormFields[] =  [
     {name: 'year', label: 'Введите год', type: 'textfield'},
-    {name: 'genre', label: 'Введите жанр', type: 'selectfield', subfields: selectGenreFields},
+    {name: 'genre', label: 'Введите жанр', type: 'selectfield', subfieldsName: 'Жанр', subfields: selectGenreFields},
     {name: 'country', label: 'Введите страну', type: 'textfield'}
 ];
 
@@ -22,4 +22,12 @@ export interface ILabel {
     year: string,
     genre: string,
     country: string
+}
+
+export interface IFormFields {
+    name: string,
+    label: string,
+    type: string,
+    subfieldsName?: string
+    subfields?: any[]
 }
