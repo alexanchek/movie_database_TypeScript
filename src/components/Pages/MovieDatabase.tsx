@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 
-import MoviesForm from '../Forms/MoviesForm';
+import MoviesForm from '../Forms/MoviesForm/MoviesForm';
 import ItemCards from '../Cards/MovieCards/ItemMovieCards';
 import { CircularProgress, Grid } from '@mui/material';
 
