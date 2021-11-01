@@ -20,10 +20,14 @@ const MoviesForm = () => {
             console.log(values);
             const data = {year: values.year, genre: values.genre, country: values.country};
             console.log(data);
-            // dispatch(getmovies(data));
+            dispatch(getmovies(data));
         }, 
         validationSchema
     })
+
+    const handleChangeSelect = (field: IFormFields) => (e: React.ChangeEvent<HTMLSelectElement>) => {
+        formik.setFieldValue(field.name, e.target.value);
+    }
 
     const textField = (field: {name: string, label: string}) => {
         return (
@@ -48,6 +52,7 @@ const MoviesForm = () => {
                             Age
                         </InputLabel>
                         <NativeSelect
+                            onChange={handleChangeSelect(field)}
                             defaultValue={'Фантастика'}
                             inputProps={{
                             name: 'age',
