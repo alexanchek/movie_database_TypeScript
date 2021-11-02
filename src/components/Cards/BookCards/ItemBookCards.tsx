@@ -9,7 +9,6 @@ import { DataBook } from '../../../types/Redux/dataBookTypes';
 const ItemCards: React.FC<IItemBookCards> = ({data}) => {
     const { loading } = useSelector((state: RootState) => state.auth);
     const amount = data.length;
-    console.log(data);
 
     return (
         <Container>

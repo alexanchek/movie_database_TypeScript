@@ -4,6 +4,7 @@ import {ThunkAction} from 'redux-thunk';
 import { DataMovieAction, DataMovie, GET_MOVIES, SET_MOVIE_LOADING } from '../../types/Redux/dataMovieTypes';
 import { RootState } from '../index';
 import { MoviesFormData } from '../../types/Components/Forms/MoviesFormDataTypes'
+import { sortData } from "../../utils/sortData";
 
 
 export const addmovie =(data: DataMovie): ThunkAction<void, RootState, null, DataMovieAction> => {
@@ -24,7 +25,7 @@ export const getmovies = (data: MoviesFormData): ThunkAction<void, RootState, nu
         const { year, genre, country } = data;
         try {
             
-            const finalArray: any = [];
+            let finalArray: any = [];
             dispatch(setMovieLoading(true));
             let query1: any = collection(db, 'movies');
 
@@ -38,6 +39,10 @@ export const getmovies = (data: MoviesFormData): ThunkAction<void, RootState, nu
                 const data = doc.data();
                 finalArray.push(data);
             })
+
+            // sort final array by movie name
+            finalArray = sortData(finalArray, 'movieName');
+
             dispatch({
                     type: GET_MOVIES,
                     payload: finalArray

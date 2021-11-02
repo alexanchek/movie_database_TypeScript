@@ -17,9 +17,7 @@ const MoviesForm = () => {
             genre: ""
         },
         onSubmit: (values) => {
-            console.log(values);
             const data = {year: values.year, genre: values.genre, country: values.country};
-            console.log(data);
             dispatch(getmovies(data));
         }, 
         validationSchema

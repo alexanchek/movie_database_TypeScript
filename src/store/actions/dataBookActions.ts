@@ -1,17 +1,18 @@
 import { collection, setDoc,  doc, query, where, getDocs} from "firebase/firestore";
 import { RootState } from "..";
 import {ThunkAction} from 'redux-thunk';
-import { DataBookAction } from "../../types/Redux/dataBookTypes";
+import { DataBook, DataBookAction } from "../../types/Redux/dataBookTypes";
 import { db } from "../../services/firebase/config";
 import { BooksFormData } from '../../types/Components/Forms/BooksFormDataTypes'
 import { GET_BOOKS } from "../../types/Redux/dataBooksTypes";
+import { sortData } from "../../utils/sortData";
 
 export const getbooks = (data: BooksFormData): ThunkAction<void, RootState, null, DataBookAction> => {
     return async dispatch => {
         const {author, year, genre } = data;
 
         try {
-            const finalArray: any = [];
+            let finalArray: any = [];
             // dispatch(setBookLoading(true));
             let query1: any = collection(db, 'books');
 
@@ -25,6 +26,10 @@ export const getbooks = (data: BooksFormData): ThunkAction<void, RootState, null
                 const data = doc.data();
                 finalArray.push(data);
             })
+
+            // sort books by a book name
+            finalArray = sortData(finalArray, 'bookName');
+
             dispatch({
                     type: GET_BOOKS,
                     payload: finalArray
