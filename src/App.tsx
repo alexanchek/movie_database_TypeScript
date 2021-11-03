@@ -1,25 +1,14 @@
-import { HashRouter as Router, Switch } from 'react-router-dom'
 import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-import PublicRoute from './components/auth/PublicRoute';
-import PrivateRoute from './components/auth/PrivateRoute';
-
-import MovieAppBar from './components/MovieAppBar/MovieAppBar';
-import BookDatabase from './components/Pages/BookDatabase';
-import BookDatabaseAdd from './components/Pages/BookDatabaseAdd';
-import MovieDatabase from './components/Pages/MovieDatabase';
-import MovieDatabaseAdd from './components/Pages/MovieDatabaseAdd';
-import Login from './components/Pages/SignIn/SignIn';
-import SignUp from './components/Pages/SignUp/SignUp';
 import Footer from './components/Footer/Footer';
 
-import { Box, CircularProgress, Container } from '@mui/material';
+import { CircularProgress } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 
 import { RootState } from './store';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getTheUserById, setLoading } from './store/actions/authActions';
+import Routes from './routes/Routes';
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
@@ -53,34 +42,9 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Router>
-        <CssBaseline />
+      <CssBaseline />
 
-        <MovieAppBar/>
-        <Switch>
-          <React.Fragment>
-            <Container>
-              <Box
-                  sx={{
-                  marginTop: 1,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',}}>
-                  <PublicRoute component={Login} exact path="/login"/>
-                  <PublicRoute component={SignUp} exact path="/signup"/>
-
-                  <PrivateRoute component={MovieDatabase} exact path="/"/>
-                  <PrivateRoute component={MovieDatabase} exact path="/movies"/>
-                  <PrivateRoute component={MovieDatabaseAdd} exact path="/movies-add"/>
-                  <PrivateRoute component={BookDatabase} exact path="/books"/>
-                  <PrivateRoute component={BookDatabaseAdd} exact path="/books-add"/>
-                  
-                  {/* <Route component={PageNotFound} exact path=""/> */}
-              </Box>
-            </Container>
-          </React.Fragment>
-        </Switch>
-      </Router>
+      <Routes />
 
       <Footer description={'Собираю фильмы, прикалываюсь, ну всё такое'} title={'Сашкина база данных'}/>
     </>
