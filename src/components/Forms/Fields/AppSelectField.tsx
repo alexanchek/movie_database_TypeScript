@@ -7,6 +7,13 @@ interface IAppSelectField {
     formik: any
 }
 
+/**
+ * AppSelectField renders an array of options are inside. 
+ * 
+ * It requires: an array of form fields.
+ * 
+*/
+
 const AppSelectField: React.FC<IAppSelectField> = ({field, formik}) => {
     const handleChangeSelect = (field: IFormFields) => (e: React.ChangeEvent<HTMLSelectElement>) => {
         formik.setFieldValue(field.name, e.target.value);

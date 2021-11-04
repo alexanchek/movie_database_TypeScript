@@ -12,7 +12,8 @@ interface IAppTextField {
  * AppTextField can be required, multiline (if the prop is here). 
  * 
  * It requires: field (with name & label fields) and formik
- * as an checking data. 
+ * as an checking data object. 
+ * 
  * 
 */
 
