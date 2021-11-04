@@ -1,11 +1,11 @@
 import React from 'react';
-import { Box, Button, FormControl, Grid, InputLabel, NativeSelect } from '@mui/material';
+import { Box, Button, Grid } from '@mui/material';
 
 import { getmovies } from '../../../store/actions/dataMovieActions';
 import { useDispatch } from 'react-redux';
 
 import { useFormik } from 'formik';
-import { formFields, validationSchema, IFormFields } from './MoviesFormConfig';
+import { formFields, validationSchema } from './MoviesFormConfig';
 
 import AppTextField from '../Fields/AppTextField';
 import AppSelectField from '../Fields/AppSelectField';
