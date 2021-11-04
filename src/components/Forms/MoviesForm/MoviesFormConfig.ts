@@ -14,12 +14,6 @@ export const formFields: IFormFields[] =  [
     {name: 'country', label: 'Введите страну', type: 'textfield'}
 ];
 
-export interface ILabel {
-    year: string,
-    genre: string,
-    country: string
-}
-
 export interface IFormFields {
     name: string,
     label: string,

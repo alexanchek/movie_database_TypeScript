@@ -22,7 +22,6 @@ export const addmovie =(data: DataMovie): ThunkAction<void, RootState, null, Dat
 
 export const getmovies = (data: MoviesFormData): ThunkAction<void, RootState, null, DataMovieAction> => {
     return async dispatch => {
-        console.log(data);
         const { year, genre, country } = data;
         try {
             

@@ -5,7 +5,8 @@ import { getmovies } from '../../../store/actions/dataMovieActions';
 import { useDispatch } from 'react-redux';
 
 import { useFormik } from 'formik';
-import { formFields, validationSchema, ILabel, IFormFields } from './MoviesFormConfig';
+import { formFields, validationSchema, IFormFields } from './MoviesFormConfig';
+import { ILabel } from '../../../types/Components/Forms/LabelInputTypes'
 
 import { sortData } from '../../../utils/sortData';
 
@@ -74,6 +75,7 @@ const MoviesForm = () => {
             <Grid container spacing={2}>
                 {formFields.map((field) => {
                     return (
+                        /* field type may be textfield or selectfield to select the needful type of input */
                         <Grid item xs={12} sm={6} key={field.name}>
                             {field.type === 'textfield'? textField(field) : null}
                             {field.type === 'selectfield'? selectField(field) : null}
