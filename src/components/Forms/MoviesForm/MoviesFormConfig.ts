@@ -9,8 +9,8 @@ export const validationSchema = yup.object({
 });
 
 export const formFields: IFormFields[] =  [
-    {name: 'year', label: 'Введите год', type: 'textfield'},
     {name: 'genre', label: 'Введите жанр', type: 'selectfield', subfieldsName: 'Жанр', subfields: selectGenreFields},
+    {name: 'year', label: 'Введите год', type: 'textfield'},
     {name: 'country', label: 'Введите страну', type: 'textfield'}
 ];
 

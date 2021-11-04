@@ -50,7 +50,7 @@ const MoviesForm = () => {
                 return (
                     <FormControl fullWidth>
                         <InputLabel variant="standard" htmlFor="uncontrolled-native">
-                            Жанр
+                            {field.label}
                         </InputLabel>
                         <NativeSelect
                             onChange={handleChangeSelect(field)}
