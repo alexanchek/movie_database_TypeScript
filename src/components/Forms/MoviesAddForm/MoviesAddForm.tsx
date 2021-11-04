@@ -1,5 +1,5 @@
-import React, {} from 'react';
-import { Box, Button, Grid, TextField } from '@mui/material';
+import React from 'react';
+import { Box, Button, Grid } from '@mui/material';
 
 import { addmovie } from '../../../store/actions/dataMovieActions';
 import { useDispatch } from 'react-redux';
@@ -9,14 +9,7 @@ import * as yup from 'yup';
 
 import { ERROR_REQUIRED, ERROR_ONLY_LETTERS, ERROR_ONLY_NUMBERS } from '../../../services/errors/errorMessages';
 import { formFields } from './MoviesAddFormConfig';
-
-interface ILabel {
-    movieName: string,
-    year: string,
-    desc: string,
-    country: string,
-    genre: string
-}
+import AppTextField from '../Fields/AppTextField';
 
 const validationSchema = yup.object({
     movieName: yup.string().required(ERROR_REQUIRED),
@@ -27,7 +20,6 @@ const validationSchema = yup.object({
   })
 
 const MoviesAddForm = () => {
-
     const dispatch = useDispatch();
     const uuid = '';
     const img = '';
@@ -53,22 +45,7 @@ const MoviesAddForm = () => {
                 {formFields.map((field) => {
                     return (
                         <Grid item xs={12} sm={field.multi ? 12 : 6}>
-                            <TextField
-                            name={field.name}
-                            required
-                            fullWidth
-                            id={field.multi ? 'outlined-multiline-static' : field.name}
-                            multiline={field.multi ? true : false}
-                            rows={field.multi ? 7 : 1}
-                            label={field.label}
-                            autoFocus
-                            value={formik.values[field.name as keyof ILabel]}
-                            onChange={formik.handleChange}
-                            // onBlur={formik.handleBlur}
-                            error={formik.touched[field.name as keyof ILabel] && Boolean(formik.errors[field.name as keyof ILabel])}
-                            helperText={formik.touched[field.name as keyof ILabel] && formik.errors[field.name as keyof ILabel]}
-                            // onChange={(e) => setMovieName(e.currentTarget.value)}
-                            />
+                            <AppTextField field={field} formik={formik} required={true}/>
                         </Grid>
                     )
                 })}
