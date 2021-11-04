@@ -1,7 +1,7 @@
 import { collection, setDoc,  doc, query, where, getDocs} from "firebase/firestore";
 import { RootState } from "..";
 import {ThunkAction} from 'redux-thunk';
-import { DataBook, DataBookAction } from "../../types/Redux/dataBookTypes";
+import { DataBook, DataBookAction, SET_BOOK_LOADING } from "../../types/Redux/dataBookTypes";
 import { db } from "../../services/firebase/config";
 import { BooksFormData } from '../../types/Components/Forms/BooksFormDataTypes'
 import { GET_BOOKS } from "../../types/Redux/dataBooksTypes";
@@ -13,7 +13,8 @@ export const getbooks = (data: BooksFormData): ThunkAction<void, RootState, null
 
         try {
             let finalArray: any = [];
-            // dispatch(setBookLoading(true));
+            dispatch(setBookLoading(true));
+
             let query1: any = collection(db, 'books');
 
             if (year) { query1 = query(query1, where('year', '==', year))}
@@ -34,9 +35,19 @@ export const getbooks = (data: BooksFormData): ThunkAction<void, RootState, null
                     type: GET_BOOKS,
                     payload: finalArray
                 })
-            // dispatch(setBookLoading(false));
+                
+            dispatch(setBookLoading(false));
         } catch (e: any) {
             console.log(e.message);
         }
+    }
+}
+
+export const setBookLoading = (value: boolean): ThunkAction<void, RootState, null, DataBookAction> => {
+    return async dispatch => {
+        dispatch({
+            type: SET_BOOK_LOADING,
+            payload: value
+        })
     }
 }

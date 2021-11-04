@@ -29,5 +29,11 @@ interface GetBooksAction {
     payload: DataBook[];
 }
 
+interface SetBookLoadingAction {
+    type: typeof SET_BOOK_LOADING;
+    payload: boolean;
+}
+
 export type DataBookAction = AddBookAction 
-| GetBooksAction;
+| GetBooksAction
+| SetBookLoadingAction;

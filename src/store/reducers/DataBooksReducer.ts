@@ -1,5 +1,5 @@
 import { BooksState } from '../../types/Redux/dataBooksTypes'
-import { DataBookAction, GET_BOOKS } from '../../types/Redux/dataBookTypes'
+import { DataBookAction, GET_BOOKS, SET_BOOK_LOADING } from '../../types/Redux/dataBookTypes'
 
 const InitialBooksState: BooksState = {
     data: null,
@@ -14,6 +14,11 @@ export const DataBooksReducer = (state= InitialBooksState, action: DataBookActio
                 ...state,
                 data: action.payload
             };
+        case SET_BOOK_LOADING:
+            return {
+                ...state,
+                bookLoading: action.payload
+            }
         default:
             return state;
     }
