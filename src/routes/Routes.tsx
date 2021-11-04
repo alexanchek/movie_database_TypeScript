@@ -17,9 +17,9 @@ const Routes = () => {
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center' }}>
-                                {DataRoutes.map((route) => {
+                                {DataRoutes.map((route, index) => {
                                     return(
-                                        <route.typeRoute component={route.component} exact={route.exact} path={route.path} />
+                                        <route.typeRoute key={index} component={route.component} exact={route.exact} path={route.path} />
                                     )
                                 })}
                         </Box>

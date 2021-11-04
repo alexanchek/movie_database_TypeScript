@@ -1,13 +1,14 @@
-import { Box, Button, Grid, TextField } from '@mui/material';
 import React, {} from 'react';
+import { Box, Button, Grid, TextField } from '@mui/material';
 
-import { addmovie } from '../../store/actions/dataMovieActions';
+import { addmovie } from '../../../store/actions/dataMovieActions';
 import { useDispatch } from 'react-redux';
 
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
-import { ERROR_REQUIRED, ERROR_ONLY_LETTERS, ERROR_ONLY_NUMBERS } from '../../services/errors/errorMessages';
+import { ERROR_REQUIRED, ERROR_ONLY_LETTERS, ERROR_ONLY_NUMBERS } from '../../../services/errors/errorMessages';
+import { formFields } from './MoviesAddFormConfig';
 
 interface ILabel {
     movieName: string,
@@ -26,13 +27,6 @@ const validationSchema = yup.object({
   })
 
 const MoviesAddForm = () => {
-    const formFields = [
-        {name: 'movieName', label: 'Введите название фильма', multi: false},
-        {name: 'year', label: 'Введите год', multi: false},
-        {name: 'genre', label: 'Введите жанр', multi: false},
-        {name: 'country', label: 'Введите страну', multi: false},
-        {name: 'desc', label: 'Краткое описание', multi: true}
-    ];
 
     const dispatch = useDispatch();
     const uuid = '';
@@ -59,22 +53,22 @@ const MoviesAddForm = () => {
                 {formFields.map((field) => {
                     return (
                         <Grid item xs={12} sm={field.multi ? 12 : 6}>
-                        <TextField
-                        name={field.name}
-                        required
-                        fullWidth
-                        id={field.multi ? 'outlined-multiline-static' : field.name}
-                        multiline={field.multi ? true : false}
-                        rows={field.multi ? 7 : 1}
-                        label={field.label}
-                        autoFocus
-                        value={formik.values[field.name as keyof ILabel]}
-                        onChange={formik.handleChange}
-                        // onBlur={formik.handleBlur}
-                        error={formik.touched[field.name as keyof ILabel] && Boolean(formik.errors[field.name as keyof ILabel])}
-                        helperText={formik.touched[field.name as keyof ILabel] && formik.errors[field.name as keyof ILabel]}
-                        // onChange={(e) => setMovieName(e.currentTarget.value)}
-                        />
+                            <TextField
+                            name={field.name}
+                            required
+                            fullWidth
+                            id={field.multi ? 'outlined-multiline-static' : field.name}
+                            multiline={field.multi ? true : false}
+                            rows={field.multi ? 7 : 1}
+                            label={field.label}
+                            autoFocus
+                            value={formik.values[field.name as keyof ILabel]}
+                            onChange={formik.handleChange}
+                            // onBlur={formik.handleBlur}
+                            error={formik.touched[field.name as keyof ILabel] && Boolean(formik.errors[field.name as keyof ILabel])}
+                            helperText={formik.touched[field.name as keyof ILabel] && formik.errors[field.name as keyof ILabel]}
+                            // onChange={(e) => setMovieName(e.currentTarget.value)}
+                            />
                         </Grid>
                     )
                 })}

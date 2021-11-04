@@ -5,7 +5,9 @@ import { getmovies } from '../../../store/actions/dataMovieActions';
 import { useDispatch } from 'react-redux';
 
 import { useFormik } from 'formik';
-import { formFields, validationSchema, ILabel, IFormFields } from './MoviesFormConfig'
+import { formFields, validationSchema, ILabel, IFormFields } from './MoviesFormConfig';
+
+import { sortData } from '../../../utils/sortData';
 
 const MoviesForm = () => {
     const dispatch = useDispatch();
@@ -47,13 +49,13 @@ const MoviesForm = () => {
                 return (
                     <FormControl fullWidth>
                         <InputLabel variant="standard" htmlFor="uncontrolled-native">
-                            Age
+                            Жанр
                         </InputLabel>
                         <NativeSelect
                             onChange={handleChangeSelect(field)}
-                            defaultValue={'Фантастика'}
+                            defaultValue={formik.initialValues.genre}
                             inputProps={{
-                            name: 'age',
+                            name: 'genre',
                             id: 'uncontrolled-native',
                             }}
                         >
