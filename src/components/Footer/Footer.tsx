@@ -7,8 +7,7 @@ import { IFooter } from '../../types/Components/IFooter';
 const Copyright = () => {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © Сашкина компания'} 2016-{new Date().getFullYear()}
-      {'.'}
+      {'Copyright © Сашкина компания'} 2016-{new Date().getFullYear()}{'.'}
     </Typography>
   );
 }
