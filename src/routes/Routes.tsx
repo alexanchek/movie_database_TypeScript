@@ -6,7 +6,6 @@ import { DataRoutes } from './DataRoutes';
 
 const Routes = () => {
     return (
-    <>
         <Router>
             <Switch>
                 <React.Fragment>
@@ -28,7 +27,6 @@ const Routes = () => {
                 </React.Fragment>
             </Switch>
         </Router>
-        </>
     );
 };
 
