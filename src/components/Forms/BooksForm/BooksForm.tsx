@@ -32,7 +32,7 @@ const MoviesForm = () => {
                 {formFields.map((field) => {
                     return (
                         <Grid item xs={12} sm={6} key={field.name}>
-                            <AppTextField field={field} formik={formik} required={false} />
+                            <AppTextField onBlur={true} field={field} formik={formik} required={false} />
                         </Grid>
                     )
                 })}     

@@ -4,6 +4,7 @@ import { ILabel } from '../../../types/Components/Forms/LabelInputTypes';
 
 interface IAppTextField {
     field: {name: string, label: string, multi?: boolean},
+    onBlur: boolean
     formik: any,
     required: boolean
 } 
@@ -11,13 +12,13 @@ interface IAppTextField {
 /**
  * AppTextField can be required, multiline (if the prop is here). 
  * 
- * It requires: field (with name & label fields) and formik
- * as an checking data object. 
+ * It requires: field (with name & label fields), onBlur boolean to check on blur 
+ * and formik as an checking data object. 
  * 
  * 
 */
 
-const AppTextField: React.FC<IAppTextField> = ({field, required, formik}) => {
+const AppTextField: React.FC<IAppTextField> = ({field, required, onBlur, formik}) => {
     return (
             <TextField
             name={field.name}
@@ -30,7 +31,7 @@ const AppTextField: React.FC<IAppTextField> = ({field, required, formik}) => {
             autoFocus
             value={formik.values[field.name as keyof ILabel]}
             onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
+            onBlur={onBlur ? formik.handleBlur : null}
             error={formik.touched[field.name as keyof ILabel] && Boolean(formik.errors[field.name as keyof ILabel])}
             helperText={formik.touched[field.name as keyof ILabel] && formik.errors[field.name as keyof ILabel]} />
     );
