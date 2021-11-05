@@ -6,10 +6,11 @@ import { DataRoutes } from './DataRoutes';
 
 const Routes = () => {
     return (
+    <>
         <Router>
-            <MovieAppBar/>
             <Switch>
                 <React.Fragment>
+                    <MovieAppBar/>
                     <Container>
                         <Box
                         sx={{
@@ -27,6 +28,7 @@ const Routes = () => {
                 </React.Fragment>
             </Switch>
         </Router>
+        </>
     );
 };
 
