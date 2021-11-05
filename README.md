@@ -14,6 +14,7 @@ Made from ground zero. There's the database including movies I would like to rec
 - Custom components PrivateRoute & Public route for dividing routes into two (public and private ones) ways.
 - formik & Yup (validation of forms)
 - Firebase (as backend)
+- React-testing-library & cypress (integration tests)
 
 ## Requirements
 
