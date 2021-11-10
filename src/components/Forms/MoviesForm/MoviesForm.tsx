@@ -33,8 +33,8 @@ const MoviesForm = () => {
                     return (
                         /* field type may be textfield or selectfield to select the needful type of input */
                         <Grid item xs={12} sm={6} key={field.name}>
-                            {field.type === 'textfield'? <AppTextField field={field} onBlur={true} formik={formik} required={false} /> : null}
-                            {field.type === 'selectfield'? <AppSelectField field={field} formik={formik} /> : null}
+                            {field.type === 'fieldtext' ? <AppTextField field={field} onBlur={true} formik={formik} required={false} /> : null}
+                            {field.type === 'fieldselect' ? <AppSelectField field={field} formik={formik} /> : null}
                         </Grid>
                     )
                 })} 

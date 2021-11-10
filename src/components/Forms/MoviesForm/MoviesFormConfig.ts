@@ -9,15 +9,15 @@ export const validationSchema = yup.object({
 });
 
 export const formFields: IFormFields[] =  [
-    {name: 'genre', label: 'Введите жанр', type: 'selectfield', subfieldsName: 'Жанр', subfields: selectGenreFields},
-    {name: 'year', label: 'Введите год', type: 'textfield'},
-    {name: 'country', label: 'Введите страну', type: 'textfield'}
+    {name: 'genre', label: 'Введите жанр', type: 'fieldselect', subfieldsName: 'Жанр', subfields: selectGenreFields},
+    {name: 'year', label: 'Введите год', type: 'fieldtext'},
+    {name: 'country', label: 'Введите страну', type: 'fieldtext'}
 ];
 
 export interface IFormFields {
     name: string,
     label: string,
-    type: string,
+    type: 'fieldselect' | 'fieldtext',
     subfieldsName?: string
     subfields?: any[]
 }
