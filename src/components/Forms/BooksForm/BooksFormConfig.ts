@@ -4,9 +4,9 @@ import * as yup from 'yup';
 import { ERROR_ONLY_LETTERS, ERROR_ONLY_NUMBERS } from '../../../services/errors/errorMessages';
 
 export const formFields: IFormFields[] =  [
-    {name: 'Автор', label: 'Введите страну', type: 'textfield'},
-    {name: 'genre', label: 'Введите жанр', type: 'selectfield', subfieldsName: 'Жанр', subfields: selectGenreFields},
-    {name: 'year', label: 'Введите год', type: 'textfield'},
+    {name: 'Автор', label: 'Введите страну', type: 'fieldtext'},
+    {name: 'genre', label: 'Введите жанр', type: 'fieldselect', subfieldsName: 'Жанр', subfields: selectGenreFields},
+    {name: 'year', label: 'Введите год', type: 'fieldtext'},
 ];
 
 export const validationSchema = yup.object({
