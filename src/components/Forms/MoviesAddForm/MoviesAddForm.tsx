@@ -44,7 +44,7 @@ const MoviesAddForm = () => {
             <Grid container spacing={2}>
                 {formFields.map((field) => {
                     return (
-                        <Grid item xs={12} sm={field.multi ? 12 : 6}>
+                        <Grid item xs={12} sm={field.multi ? 12 : 6} key={field.label}>
                             <AppTextField field={field} formik={formik} required={true} onBlur={false}/>
                         </Grid>
                     )

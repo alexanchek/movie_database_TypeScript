@@ -10,7 +10,7 @@ import AppTextField from '../Fields/AppTextField';
 import { formFields } from './BooksFormConfig';
 import { validationSchema } from '../MoviesForm/MoviesFormConfig';
 
-const MoviesForm = () => {
+const BooksForm = () => {
     const dispatch = useDispatch();
 
     const formik = useFormik({
@@ -51,4 +51,4 @@ const MoviesForm = () => {
     );
 };
 
-export default MoviesForm;
+export default BooksForm;

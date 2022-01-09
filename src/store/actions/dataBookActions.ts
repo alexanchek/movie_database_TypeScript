@@ -7,6 +7,20 @@ import { BooksFormData } from '../../types/Components/Forms/BooksFormDataTypes'
 import { GET_BOOKS } from "../../types/Redux/dataBooksTypes";
 import { sortData } from "../../utils/sortData";
 
+export const addBook =(data: DataBook): ThunkAction<void, RootState, null, DataBookAction> => {
+    return async dispatch => {
+        try {
+
+            const documentRef = await doc(collection(db, "books"));
+            const documentId = documentRef.id;
+            const docToBase = {...data, uuid: documentId};
+            await setDoc(documentRef, docToBase);
+        } catch (e: any) {
+            console.log(e.message);
+        }
+    }
+}
+
 export const getbooks = (data: BooksFormData): ThunkAction<void, RootState, null, DataBookAction> => {
     return async dispatch => {
         const {author, year, genre } = data;

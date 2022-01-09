@@ -22,6 +22,6 @@
     "types": ["cypress", "@testing-library/cypress"],
   },
   "include": [
-    "src", "**/*.ts",
+    "src", "**/*.ts", "my-module-resolve.js",
   ]
 }

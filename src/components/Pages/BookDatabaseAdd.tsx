@@ -1,14 +1,10 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import BooksAddForm from "../Forms/BooksAddForm/BooksAddForm";
 
 const BookDatabaseAdd = () => {
-    const dispatch = useDispatch();
-    
-    return (
-        <div>
-            Books Page will be added soon
-        </div>
-    );
+
+  return (<BooksAddForm />);
 };
 
 export default BookDatabaseAdd;
